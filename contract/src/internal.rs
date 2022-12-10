@@ -30,7 +30,7 @@ impl DepositProxy {
         promise.then(
             Self::ext(env::current_account_id())
                 .with_static_gas(Gas(5 * TGAS))
-                .query_deposit_callback(),
+                .query_deposit_callback(account, amount),
         )
     }
 }
